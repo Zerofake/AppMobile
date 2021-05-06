@@ -1,0 +1,361 @@
+import { Body, List, Text } from 'native-base';
+import React from 'react';
+import { View, flatList, StyleSheet, Color,LogBox, SafeAreaView, 
+  FlexAlignType,
+   flex, FlatList, Header, FontSize, 
+  ScrollView, TeladeCima, ViewBase, alignItems, TextInput
+} from 'react-native';
+
+ import {Navigator} from '@react-navigation/native';
+
+
+const App = () => {
+  return (
+    // Try removing the `flex: 1` on the parent View.
+    // The parent will not have dimensions, so the children can't expand.
+    // What if you add `height: 300` instead of `flex: 1`?
+   
+    <SafeAreaView >
+<Text> sdsdasdasd</Text>
+<Text>wwwwwwwwwwwwwwwwwwwwwww</Text>
+<Text>eeeeeeeeeeeeeee</Text>
+    <View style={{width: 100, height:50, borderColor: 'black', borderWidth: 4}}>
+    <TextInput style={styles.ED}> 
+
+    </TextInput>
+    </View>
+
+    
+
+    <View style={styles.container}>
+      
+    
+
+      
+  
+        <Text>Nome :</Text>
+
+         <View>
+         <Text>Mesa:</Text>
+        </View>
+
+    
+       <View style={styles.peqmargin}> 
+       <Text>Lanches :</Text>
+        </View>
+   
+        <SafeAreaView style={styles.B1} >
+          <FlatList
+           data={[
+           {key: 'Guarana :'}, 
+           {key: '___:'},  
+             {key: 'Dominic :'},
+             {key: 'Jackson :'},
+             {key: 'James'},
+             {key: 'Joel'},
+         
+           ]}
+           renderItem={({item}) => <Text>
+            {item.key}{item.Valor}</Text>  // da pra coloca um view
+          
+            }
+           
+          
+
+
+         />
+
+          <SafeAreaView>
+            <FlatList
+            data={[
+            {Valor: 'Preço(R$): '}, 
+            {Valor: 'Preço(R$): '}, 
+
+            {Valor: 'Preço(R$): '}, 
+            ]}
+            renderItem={({item}) => <Text style={styles.List2}>
+            {item.Valor}</Text>  // da pra coloca um view
+
+            }
+              />
+            </SafeAreaView>
+
+
+
+
+     </SafeAreaView>
+
+     <SafeAreaView>
+            <FlatList
+            data={[
+            {Valor: 'Total: '}, 
+            
+            ]}
+            renderItem={({item}) => <Text style={styles.AliList}>
+            {item.Valor}</Text>  // da pra coloca um view
+
+            }
+              />
+            </SafeAreaView>
+
+            
+            
+     
+      </View>
+        
+      </SafeAreaView>
+      
+               
+  );
+};
+
+
+
+
+const styles = StyleSheet.create({
+  container: { //  engloba todos os componentes na view 
+    flexGrow: 1,
+    
+    
+  
+   
+    marginTop: 25,
+    width: '100%',
+    height: '75%',
+   
+    
+  },
+
+  TeladeCima: { // era o estilo pra tela que iria fica em cima como flex box no topo 
+    flex: 1 , flexDirection:'row', 
+    justifyContent:"center",
+     
+        width: 100 , 
+        height: 100,
+         borderWidth: 4 , 
+         
+
+         marginBottom: 50,
+  },
+
+  peqmargin: {// pequena margin 
+  
+    marginTop: 25,
+  
+
+  },
+  
+  B1: { // B1 = Bloco 1 para criar bloco
+    flex: 0.50,
+    padding: 5,
+    margin: 2,
+    width: '100%',
+    height: 100 ,
+    justifyContent:'space-between',
+    borderStyle: 'solid' ,
+    borderWidth: 4,
+    borderColor: '#7CCD7C',
+    fontSize: 14 ,
+    backgroundColor: '#F21E02' ,
+  },
+
+  b2:{// bloco 2 com funcionalidades de separa o que esta dentro do bloco 1
+    padding:10,
+    width: 10,
+    height: 10 ,
+    marginLeft: 10,
+    alignItems: 'center' ,
+  },
+
+  AliList:{ // alinha lista 2 
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    
+    margin: 4,
+    padding: 2,
+    borderColor: 'orange',
+    borderWidth: 4,
+    backgroundColor: 'red',
+
+  },
+
+  List2:{ // estilo apenas pra lista 2 de preço , lista dentro da lista
+      
+      
+      paddingLeft: 10,
+      marginLeft: '75%',
+      width: 50,
+      height: 80,
+      borderStyle: 'solid' ,
+    borderWidth: 4,
+    borderColor: '#7CCD7C',
+    fontSize: 12 ,
+    backgroundColor: '#F21E02'
+
+  },
+
+  ED: {// entrada de dados para o input
+    borderWidth: 1,
+    borderColor: '#777',
+    padding: 8,
+    margin: 15,
+    width: 200,
+    height: 50,
+
+  },
+
+  
+
+
+}); // tem q ter esses pontos aki
+
+
+
+
+
+
+
+
+export default App ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+const DATA = [
+  {
+    id: 'o',
+    title: '6° item',
+    Mesa : "10",
+    Lanches: "Hamburgue",
+  },
+  {
+    id: 'joao',
+    title: '2° item',
+    Mesa : "13",
+    Lanches: "Hamburgue",
+  },
+  {
+    id: 'joao',
+    title: '2° item',
+    Mesa : "13",
+    Lanches: "Hamburgue",
+  },
+];
+
+
+
+
+const Stack = createStackNavigator ();
+
+const Tela1 = (props) => {
+  const irTela2 = () => {
+  const navigation = props.navigation;
+  navigation.replace('Tela2');
+  };
+  return (
+    <FlatList data={id, Mesa, Lanches}
+    renderItem = {( {id}) =>
+  <Text style={style.BordaDLista}>{id.key}</Text>
+  
+
+
+
+
+  }
+    >
+ </FlatList>
+  )}
+
+
+ 
+
+
+
+
+
+const style = StyleSheet.create ({
+  BordaDLista: {
+    flex : 1,
+    backgroundColor: "blue",
+    border: '4',
+
+  },
+}
+);
+   
+
+
+
+
+
+
+
+//   aqui pega o testo escrito em outra tela , nome do cliente em uma parte do story
+// 
+ /* const getText = () => {
+    const state = store.getState();
+    return state.text;
+
+  }; *
+
+  return (
+    <View>
+      <Text style={{fontSize: 20}}> Tela 2</Text>
+      <Text style={{fontSize: 20}}>{'Cliente' +getText()} </Text>
+
+    </View>
+
+
+  ) */
+
+
+
+/*
+
+const App = () => {
+return(
+  
+<NavigationContainer>
+  <Stack.Navigator
+    screenOptions={{
+      headerShown: true,
+}}>
+   <Stack.Screen name="Tela1" component={Tela1} />
+   {/* <Stack.Screen name="Tela2" component={Tela2} />  */
+
+    
+/*
+
+</Stack.Navigator>
+</NavigationContainer>
+
+   );
+
+}; */
+
