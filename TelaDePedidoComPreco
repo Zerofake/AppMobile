@@ -1,0 +1,155 @@
+import { Body, List, Text } from 'native-base';
+import React from 'react';
+import { View, flatList , StyleSheet, Color,LogBox, SafeAreaView, 
+  FlexAlignType,
+   flex, FlatList, Header, 
+  ScrollView, TeladeCima, ViewBase, alignItems
+} from 'react-native';
+
+ import {Navigator} from '@react-navigation/native';
+
+
+const App = () => {
+  return (
+    // Try removing the `flex: 1` on the parent View.
+    // The parent will not have dimensions, so the children can't expand.
+    // What if you add `height: 300` instead of `flex: 1`?
+   
+
+    <View style={styles.container}>
+      
+  
+    <Text>Nome :</Text>
+
+    <View>
+    <Text>Mesa:</Text>
+    </View>
+
+    
+   <View style={styles.peqmargin}> 
+    <Text>Lanches :</Text>
+    </View>
+   
+    <SafeAreaView style={styles.B1} >
+       <FlatList
+           data={[
+           {key: 'Guarana :'}, 
+           {key: '___:'},  
+             {key: 'Dominic :'},
+             {key: 'Jackson :'},
+             {key: 'James'},
+             {key: 'Joel'},
+         
+           ]}
+           renderItem={({item}) => <Text>
+            {item.key}{item.Valor}</Text>  // da pra coloca um view
+          
+            }
+           
+          
+
+
+         />
+     </SafeAreaView>
+
+     <SafeAreaView>
+            <FlatList
+            data={[
+            {Valor: 'Total: '}, 
+            
+            ]}
+            renderItem={({item}) => <Text style={styles.AliList}>
+            {item.Valor}</Text>  // da pra coloca um view
+
+            }
+              />
+            </SafeAreaView>
+
+            
+
+     
+      </View>
+
+           
+           
+
+
+       
+  );
+};
+
+
+
+
+const styles = StyleSheet.create({
+  container: {
+    flexGrow: 1,
+    
+  
+   
+    marginTop: 25,
+    width: '80%',
+    height: '75%',
+   
+    
+  },
+
+  TeladeCima: { // era o estilo pra tela que iria fica em cima como flex box no topo 
+    flex: 1 , flexDirection:'row', 
+    justifyContent:"center",
+     
+        width: 100 , 
+        height: 100,
+         borderWidth: 4 , 
+         
+
+         marginBottom: 50,
+  },
+
+  peqmargin: {// pequena margin 
+  
+    marginTop: 50,
+  
+
+  },
+  
+  B1: { // B1 = Bloco 1 para criar bloco
+    flex: 0.75,
+    padding: 10,
+    margin: 10,
+    width: '75%',
+    height: 100 ,
+    
+    borderStyle: 'solid' ,
+    borderWidth: 4,
+    borderColor: '#7CCD7C',
+    fontSize: 14 ,
+    backgroundColor: '#F21E02' ,
+  },
+
+  b2:{// bloco 2 com funcionalidades de separa o que esta dentro do bloco 1
+    padding:10,
+    width: 10,
+    height: 10 ,
+    marginLeft: 10,
+    alignItems: 'center' ,
+  },
+
+  AliList:{ // alinha lista 2 
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems:'center',
+    margin: 4,
+    padding: 2,
+    borderColor: 'orange',
+    borderWidth: 4,
+    backgroundColor: 'red',
+
+  }
+
+
+}); // tem q ter esses pontos aki
+
+
+
+export default App ;
