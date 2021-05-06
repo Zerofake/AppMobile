@@ -19,10 +19,10 @@ const App = () => {
 <Text> sdsdasdasd</Text>
 <Text>wwwwwwwwwwwwwwwwwwwwwww</Text>
 <Text>eeeeeeeeeeeeeee</Text>
-    <View style={{width: 100, height:50, borderColor: 'black', borderWidth: 4}}>
-    <TextInput style={styles.ED}> 
+    <View>
+    <TextInput style={styles.ED}  onChangeText={''}> 
 
-    </TextInput>
+    </TextInput >
     </View>
 
     
@@ -217,12 +217,6 @@ const styles = StyleSheet.create({
 
 
 export default App ;
-
-
-
-
-
-
 
 
 
