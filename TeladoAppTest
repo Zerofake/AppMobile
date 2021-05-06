@@ -1,0 +1,106 @@
+import { Body, List, Text } from 'native-base';
+import React from 'react';
+import { View, flatList , StyleSheet, Color,LogBox, SafeAreaView, 
+  FlexAlignType,
+   flex, FlatList, Header, 
+  ScrollView, TeladeCima} from 'react-native';
+
+
+const App = () => {
+  return (
+    // Try removing the `flex: 1` on the parent View.
+    // The parent will not have dimensions, so the children can't expand.
+    // What if you add `height: 300` instead of `flex: 1`?
+   
+
+    <View style={styles.container}>
+      
+      
+
+
+      
+        
+    <Text>Nome :</Text>
+
+    <View>
+    <Text>Mesa:</Text>
+    </View>
+
+    
+   <View style={styles.peqmargin}> 
+    <Text>Lanches : </Text>
+    </View>
+   
+    <SafeAreaView style={styles.B1} >
+       <FlatList
+           data={[
+           {key: 'Guarana'}, 
+           {key: 'df'},  
+             {key: 'Dominic'},
+             {key: 'Jackson'},
+             {key: 'James'},
+             {key: 'Joel'},
+         
+           ]}
+           renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
+         />
+     </SafeAreaView>
+
+
+     
+      </View>
+       
+  );
+};
+
+
+
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 2,
+    
+ 
+   
+    marginTop: 100,
+    width: '100%',
+    height: '100%',
+    padding: 25,
+    
+  },
+
+  TeladeCima: {
+    flex: 1 , flexDirection:'row', 
+    justifyContent:"center",
+     
+        width: 100 , 
+        height: 100,
+         borderWidth: 4 , 
+         
+
+         marginBottom: 50,
+  },
+
+  peqmargin: {
+  
+    marginTop: 50,
+  
+
+  },
+  
+  B1: { // B1 = Bloco 1 para criar bloco
+    flex: 1,
+    padding: 10,
+    margin: 10,
+    width: 200,
+    backgroundColor: '#CD3333' ,
+    borderStyle: 'solid' ,
+    borderWidth: 4,
+    fontSize: 14 ,
+  }
+
+}); // tem q ter esses pontos aki
+
+
+
+export default App;
