@@ -1,0 +1,243 @@
+import { Body, List, Text } from 'native-base';
+import React from 'react';
+import { View, flatList , StyleSheet, Color,LogBox, SafeAreaView, 
+  FlexAlignType,
+   flex, FlatList, Header, Button, 
+  ScrollView, TeladeCima, ViewBase, component, Stack
+
+} from 'react-native';
+
+ //import {Navigator} from '@react-navigation/native';
+
+ //import Cadastro from './Cadastro.js';
+
+
+// TELA QUE NÃO ESTA FUNCIONANDO  TESTE  GUARDANDO PRA LEMBRAR E TENTA  MUDAR
+
+
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+
+/*
+onst Stack = createStackNavigator();
+
+const Tela1 = (props) => {
+  
+  const irTela2 = () => {
+    const navigation = props.navigation;
+    navigation.replace('Tela2');
+  };
+
+
+  return (
+    <View>
+      <Text> Tela 1 </Text>
+      <Button title="ir tela 2 sem poder voltar" onPress={irTela2}></Button>
+    </View>
+  );
+};
+
+*/
+
+
+
+const stack = createStackNavigator();
+
+
+
+
+
+const Api = (props) => {
+  
+  const irTela1 = () => {
+    const navigation = props.navigation;
+    navigation.replace('Tela1');
+  };
+  
+
+  return (
+    // Try removing the `flex: 1` on the parent View.
+    // The parent will not have dimensions, so the children can't expand.
+    // What if you add `height: 300` instead of `flex: 1`?
+   
+    <View>
+
+    <Text> Tela 1 </Text>
+    <Button title="ir tela 1 sem poder voltar" onPress={irTela1}></Button>
+
+    </View>,
+    
+
+    <View style={styles.container}>
+      
+      
+    <Text>Nome :</Text>
+
+    <View>
+    <Text>Mesa:</Text>
+    </View>
+
+    
+   <View style={styles.peqmargin}> 
+    <Text>Lanches :</Text>
+    </View>
+   
+    <SafeAreaView style={styles.B1} >
+       <FlatList
+           data={[
+           {key: 'Guarana', Valor: 'Preço'}, 
+           {key: 'df'},  
+             {key: 'Dominic'},
+             {key: 'Jackson'},
+             {key: 'James'},
+             {key: 'Joel'},
+         
+           ]}
+           renderItem={({item}) => <Text>
+            {item.key}{item.Valor}</Text> // da pra coloca um view
+             
+            }
+           
+         />
+     </SafeAreaView>
+
+
+     
+      </View>
+       
+  );
+};
+
+
+
+// daki 
+
+const Tela1 = (props) => {
+  
+  const irApi = () => {
+    const navigation = props.navigation;
+    navigation.replace('Api');
+  };
+
+
+  return (
+    <View>
+      <Text> Tela 1 </Text>
+      <Button title="ir tela 2 sem poder voltar" onPress={irApi}></Button>
+    </View>
+  );
+};
+
+
+
+
+
+
+const Tela2 = (props) => {
+
+  const irApi = () => {
+    const navigation = props.navigation;
+    navigation.replace('Api');
+  };
+
+
+  return (
+    <View>
+      <Text> Tela 2 </Text>
+      <Button title="ir tela 3 podendo voltar" onPress={irApi}></Button>
+    </View>
+  );
+};
+
+
+
+
+
+
+const App = () => {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}>
+        <Stack.Screen name= "Api"  componente={Api}/>
+        <Stack.Screen name="Tela1" component={Tela1} />
+        <Stack.Screen name="Tela2" component={Tela2} />
+        
+      
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
+
+
+
+// aki
+
+
+
+
+
+
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 2,
+    
+ 
+   
+    marginTop: 25,
+    width: '100%',
+    height: '50%',
+    padding: 25,
+    
+  },
+
+  TeladeCima: { // era o estilo pra tela que iria fica em cima como flex box no topo 
+    flex: 1 , flexDirection:'row', 
+    justifyContent:"center",
+     
+        width: 100 , 
+        height: 100,
+         borderWidth: 4 , 
+         
+
+         marginBottom: 50,
+  },
+
+  peqmargin: {// pequena margin 
+  
+    marginTop: 50,
+  
+
+  },
+  
+  B1: { // B1 = Bloco 1 para criar bloco
+    flex: 0.75,
+    padding: 10,
+    margin: 10,
+    width: '100%',
+    height: 100 ,
+    
+    borderStyle: 'solid' ,
+    borderWidth: 4,
+    borderColor: '#7CCD7C',
+    fontSize: 14 ,
+    backgroundColor: '#F21E02' ,
+  },
+
+  b2:{// bloco 2 com funcionalidades de separa o que esta dentro do bloco 1
+    padding:10,
+    width: 10,
+    height: 10 ,
+    marginLeft: 10,
+
+  }
+
+
+}); // tem q ter esses pontos aki
+
+
+
+export default App ;
