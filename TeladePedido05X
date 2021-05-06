@@ -34,7 +34,7 @@ const App = () => {
     <SafeAreaView style={styles.B1} >
        <FlatList
            data={[
-           {key: 'Guarana', Valor :'Preço:'}, 
+           {key: 'Guarana', Valor: 'Preço'}, 
            {key: 'df'},  
              {key: 'Dominic'},
              {key: 'Jackson'},
@@ -42,8 +42,8 @@ const App = () => {
              {key: 'Joel'},
          
            ]}
-           renderProduto={({Produto}) => <Text>
-             {Produto.key}{item.Valor}</Text> // da pra coloca um view
+           renderItem={({item}) => <Text>
+            {item.key}{item.Valor}</Text> // da pra coloca um view
              
             }
            
@@ -66,9 +66,9 @@ const styles = StyleSheet.create({
     
  
    
-    marginTop: 100,
+    marginTop: 25,
     width: '100%',
-    height: '100%',
+    height: '50%',
     padding: 25,
     
   },
@@ -93,16 +93,17 @@ const styles = StyleSheet.create({
   },
   
   B1: { // B1 = Bloco 1 para criar bloco
-    flex: 1,
+    flex: 0.75,
     padding: 10,
     margin: 10,
     width: '100%',
-    backgroundColor: '#F21E02' ,
+    height: 100 ,
+    
     borderStyle: 'solid' ,
     borderWidth: 4,
     borderColor: '#7CCD7C',
-    fontSize: 20 ,
-   
+    fontSize: 14 ,
+    backgroundColor: '#F21E02' ,
   },
 
   b2:{// bloco 2 com funcionalidades de separa 
@@ -119,3 +120,6 @@ const styles = StyleSheet.create({
 
 
 export default App;
+
+
+
