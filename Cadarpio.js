@@ -74,7 +74,10 @@ export default function CardapioView(props) {
         title: {
             width: '100%',
             justifyContent: 'center',
-            textAlign: 'center'
+            textAlign: 'center',
+            paddingBottom: 3  ,
+            fontSize: 20,
+            
         },
     boxx:{// uma caixa de estilo para os botoes confirma e cancela
      
@@ -101,12 +104,19 @@ export default function CardapioView(props) {
     fontSize: 16,
    
 
+    },
+
+    MODALTEXT: { // estilos pros textos dentro do modal
+
+      fontSize: 16,
+      paddingBottom: 5,
+      
+    
     }
 
 
-
-
     });
+
     const Pedido = ({ id, nome, preco, style }) => (
 
         <TouchableOpacity
@@ -184,6 +194,8 @@ export default function CardapioView(props) {
                 keyExtractor={item => item.id}
             />
 
+
+
             <Modal
                 animationType="fade"
                 transparent={true}
@@ -195,8 +207,8 @@ export default function CardapioView(props) {
                 <View style={StyleSheet.flatten([styles.container, styles.modalBackground])}>
                     <View style={styles.modalContainer}>
                         <Text style={styles.title}>{prato.nome}</Text>
-                        <Text>Preco unitario: {prato.preco_uni}</Text>
-                        <Text>Preco total: {total.toFixed(2)}</Text>
+                        <Text style={styles.MODALTEXT} >Preco unitario: {prato.preco_uni}</Text>
+                        <Text style={styles.MODALTEXT} >Preco total: {total.toFixed(2)}</Text>
                         <View style={styles.botoesView}>
                             <TouchableOpacity
                             onPress={() => {
@@ -207,9 +219,9 @@ export default function CardapioView(props) {
                                 setPrato(newPrato)
                                 setTotal(newPrato.preco_uni * newPrato.quantidade)
                             }}>
-                                <Icon type="FontAwesome" name="plus" style={{ color: "#19EB87", padding: 5, backgroundColor:"#000108", innerWidth: 15, innerHeight: 15, }} />
+                                <Icon type="FontAwesome" name="plus" style={{ color: "#000000", padding: 5, backgroundColor:"#09F8A1", innerWidth: 15, innerHeight: 15, }} />
                             </TouchableOpacity>
-                            <Text style={{padding: 2,fontSize: 16, }}>{qtd}</Text>
+                            <Text style={{padding: 10,fontSize: 20, borderRadius: 10, borderColor: "#000000" }}>{qtd}</Text>
                             <TouchableOpacity
                             onPress={() => {
                                 if(qtd > 1) {
@@ -222,7 +234,7 @@ export default function CardapioView(props) {
                                 }
                                 
                             }}>
-                                <Icon type="FontAwesome" name="minus" style={{ color: "#DB1212", padding:5, backgroundColor: "#000108", innerWidth: 15, innerHeight: 15,  }} />
+                                <Icon type="FontAwesome" name="minus" style={{ color: "#0000000", padding:5, backgroundColor: "#3763DF", innerWidth: 15, innerHeight: 15,  }} />
                             </TouchableOpacity>
                         </View>
                         <View style={styles.botoesView}>
